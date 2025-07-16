@@ -30,7 +30,7 @@ SayCan의 원본 코드를 실행하는 과정에서 다음과 같은 주요 문
 
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-
+---
 ## ⚙️ 개발 환경 및 설치 방법
 
 ### 🐍 Conda 가상환경 설정 및 패키지 설치
