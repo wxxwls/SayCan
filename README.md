@@ -73,3 +73,4 @@ pip install --upgrade flax optax chex
 pip install opencv-python
 pip install matplotlib
 pip install charset_normalizer
+pip install notebook
