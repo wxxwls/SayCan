@@ -1,8 +1,13 @@
 # SayCan 로봇 행동 계획 시스템 
 
-본 프로젝트는 2022년 Google에서 제안한 언어 기반 로봇 행동 계획 알고리즘인 **SayCan**을 재구성한 Jupyter Notebook입니다. 기존 SayCan은 대형 언어모델(GPT)과 로봇의 행동 가능성 정보(Affordance)를 결합하여 자연어 명령을 실제 로봇 동작으로 변환하는 구조를 가지고 있습니다.
+본 프로젝트는 2022년 Google에서 제안한 언어 기반 로봇 행동 계획 알고리즘인 **SayCan**을 재구성한 Jupyter Notebook입니다.  
+SayCan은 대형 언어모델(GPT)과 로봇의 행동 가능성 정보(Affordance)를 결합하여 자연어 지시를 실제 실행 가능한 행동으로 연결하는 시스템입니다.
 
-기타자료는 노션의 "혼자 공부하는 SAYCAN" 참고
+> 📌 본 프로젝트는 Google Research에서 공개한 원본 노트북  
+> [`SayCan-Robot-Pick-Place.ipynb`](https://github.com/google-research/google-research/blob/master/saycan/SayCan-Robot-Pick-Place.ipynb)  
+> 를 기반으로, **최신 라이브러리와 GPU 환경에 맞도록 호환성 개선 및 재구현**한 버전입니다.
+
+> 📎 참고 자료는 **노션 문서 _"혼자 공부하는 SAYCAN"_** 에 정리되어 있습니다.
 
 ---
 
