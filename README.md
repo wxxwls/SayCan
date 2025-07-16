@@ -38,7 +38,7 @@ OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ---
 ## ⚙️ 개발 환경 및 설치 방법
 
-### 🐍 Conda 가상환경 설정 및 패키지 설치
+###  Conda 가상환경 설정 및 패키지 설치
 
 ```bash
 conda create -n saycans python=3.9 -y
