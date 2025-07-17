@@ -45,38 +45,47 @@ OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ###  Conda 가상환경 설정 및 패키지 설치
 
 ```bash
-# 가상환경 생성 및 활성화
+# Conda 환경 생성 및 활성화 참고로 적어놓은것
 conda create -n saycans python=3.9 -y
 conda activate saycans
 
-# CUDA + cuDNN (JAX, TensorFlow 공통 요구사항)
-conda install -c conda-forge cudatoolkit=11.8 cudnn=8.9 -y
+# CUDA 및 cuDNN 설치 가상환경에서 진행
+conda install -c conda-forge cudatoolkit=11.8 cudnn=8.9
 
-# 필수 파이썬 패키지
+
+# 필수 라이브러리
 pip install jinja2 pyyaml typeguard
 pip install tensorflow==2.11.0
 
-# JAX + Flax + Optax (최신 안정 버전 기준, 중복 제거)
-pip install --upgrade "jax[cuda11_pip]>=0.4.27" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install --upgrade flax==0.8.2 optax==0.1.7 chex==0.1.7 orbax-checkpoint==0.6.4
+# JAX GPU 지원 및 관련 라이브러리 (구버전 설치 후 오류 해결용 업그레이드)
+pip install jax[cuda11_cudnn86]==0.4.13 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+pip install flax==0.6.11 optax==0.1.5 chex==0.1.7
 
-# CLIP 관련
+# OpenAI 및 기타 유틸
 pip install openai easydict tqdm requests ftfy regex
 pip install git+https://github.com/openai/CLIP.git
-
-# 시각화 및 유틸
-pip install matplotlib opencv-python
-pip install charset_normalizer
-pip install notebook
 pip install tensorboard
 
-# 영상처리
+# MoviePy 관련
 conda install -c conda-forge moviepy -y
 pip install moviepy==1.0.3 imageio==2.9.0
 
-# 수치 연산
-pip install numpy==1.26.4 scipy==1.10.1
+# Numpy & Pillow 충돌 방지
+pip install numpy==1.26.4
 
-# 시뮬레이션
+# 최신 JAX, Flax, Optax, Chex로 마무리
+pip install jax==0.4.27 jaxlib==0.4.27 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+pip install flax==0.8.2 optax==0.1.7 orbax-checkpoint==0.6.4
+pip install scipy==1.10.1
 pip install pybullet
+
+# 최신 JAX 재업그레이드 (GPU 연동용)
+pip install --upgrade "jax[cuda11_pip]>=0.4.27" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+pip install --upgrade flax optax chex
+
+# 기타 유틸
+pip install opencv-python
+pip install matplotlib
+pip install charset_normalizer
+
 
