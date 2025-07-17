@@ -57,10 +57,6 @@ conda install -c conda-forge cudatoolkit=11.8 cudnn=8.9
 pip install jinja2 pyyaml typeguard
 pip install tensorflow==2.11.0
 
-# JAX GPU 지원 및 관련 라이브러리 (구버전 설치 후 오류 해결용 업그레이드)
-pip install jax[cuda11_cudnn86]==0.4.13 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install flax==0.6.11 optax==0.1.5 chex==0.1.7
-
 # OpenAI 및 기타 유틸
 pip install openai easydict tqdm requests ftfy regex
 pip install git+https://github.com/openai/CLIP.git
@@ -73,19 +69,25 @@ pip install moviepy==1.0.3 imageio==2.9.0
 # Numpy & Pillow 충돌 방지
 pip install numpy==1.26.4
 
-# 최신 JAX, Flax, Optax, Chex로 마무리
-pip install jax==0.4.27 jaxlib==0.4.27 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install flax==0.8.2 optax==0.1.7 orbax-checkpoint==0.6.4
+# 최신 JAX (GPU 연동, CUDA 11.x용)
+pip install --upgrade "jax[cuda11_pip]==0.4.27" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+
+# 관련 라이브러리 (Flax, Optax, Chex, Orbax 포함)
+pip install flax==0.8.2 optax==0.1.7 chex==0.1.7 orbax-checkpoint==0.6.4
+
+# 과학 계산 및 시뮬레이션용
 pip install scipy==1.10.1
 pip install pybullet
-
-# 최신 JAX 재업그레이드 (GPU 연동용)
-pip install --upgrade "jax[cuda11_pip]>=0.4.27" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install --upgrade flax optax chex
 
 # 기타 유틸
 pip install opencv-python
 pip install matplotlib
 pip install charset_normalizer
+pip install gdown
+gdown --id 1Cc_fDSBL6QiDvNT4dpfAEbhbALSVoWcc   # ur5e.zip
+gdown --id 1yOMEm-Zp_DL3nItG9RozPeJAmeOldekX   # robotiq_2f_85.zip
+gdown --id 1GsqNLhEl9dd4Mc3BM0dX3MibOI1FVWNM   # bowl.zip
+pip install gsutil
+gsutil cp -r gs://cloud-tpu-checkpoints/detection/projects/vild/colab/image_path_v2 ./
 
 
