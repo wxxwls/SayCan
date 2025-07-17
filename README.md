@@ -42,35 +42,38 @@ OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ###  Conda 가상환경 설정 및 패키지 설치
 
 ```bash
+# 가상환경 생성 및 활성화
 conda create -n saycans python=3.9 -y
 conda activate saycans
-conda install -c conda-forge cudatoolkit=11.8 cudnn=8.9
 
+# CUDA + cuDNN (JAX, TensorFlow 공통 요구사항)
+conda install -c conda-forge cudatoolkit=11.8 cudnn=8.9 -y
+
+# 필수 파이썬 패키지
 pip install jinja2 pyyaml typeguard
 pip install tensorflow==2.11.0
 
-pip install jax[cuda11_cudnn86]==0.4.13 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install flax==0.6.11 optax==0.1.5 chex==0.1.7
+# JAX + Flax + Optax (최신 안정 버전 기준, 중복 제거)
+pip install --upgrade "jax[cuda11_pip]>=0.4.27" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+pip install --upgrade flax==0.8.2 optax==0.1.7 chex==0.1.7 orbax-checkpoint==0.6.4
 
+# CLIP 관련
 pip install openai easydict tqdm requests ftfy regex
 pip install git+https://github.com/openai/CLIP.git
+
+# 시각화 및 유틸
+pip install matplotlib opencv-python
+pip install charset_normalizer
+pip install notebook
 pip install tensorboard
 
+# 영상처리
 conda install -c conda-forge moviepy -y
 pip install moviepy==1.0.3 imageio==2.9.0
 
-pip install numpy==1.26.4
+# 수치 연산
+pip install numpy==1.26.4 scipy==1.10.1
 
-pip install jax==0.4.27 jaxlib==0.4.27 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install flax==0.8.2 optax==0.1.7 orbax-checkpoint==0.6.4
-
-pip install scipy==1.10.1
+# 시뮬레이션
 pip install pybullet
 
-pip install --upgrade "jax[cuda11_pip]>=0.4.27" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install --upgrade flax optax chex
-
-pip install opencv-python
-pip install matplotlib
-pip install charset_normalizer
-pip install notebook
